@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A88DE812297BC795003A7580 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88DE811297BC795003A7580 /* Date.swift */; };
+		A88DE815297BF422003A7580 /* StreakView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88DE814297BF422003A7580 /* StreakView.swift */; };
 		A8F4B7F0297921AB00B79BAA /* Swift_CalendarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F4B7EF297921AB00B79BAA /* Swift_CalendarApp.swift */; };
 		A8F4B7F2297921AB00B79BAA /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F4B7F1297921AB00B79BAA /* CalendarView.swift */; };
 		A8F4B7F4297921AE00B79BAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8F4B7F3297921AE00B79BAA /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		A88DE811297BC795003A7580 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		A88DE814297BF422003A7580 /* StreakView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakView.swift; sourceTree = "<group>"; };
 		A8F4B7EC297921AB00B79BAA /* Swift Calendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swift Calendar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8F4B7EF297921AB00B79BAA /* Swift_CalendarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_CalendarApp.swift; sourceTree = "<group>"; };
 		A8F4B7F1297921AB00B79BAA /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				A8F4B7F8297921AE00B79BAA /* Persistence.swift */,
 				A8F4B7FA297921AE00B79BAA /* Swift_Calendar.xcdatamodeld */,
 				A8F4B7F5297921AE00B79BAA /* Preview Content */,
+				A88DE814297BF422003A7580 /* StreakView.swift */,
 			);
 			path = "Swift Calendar";
 			sourceTree = "<group>";
@@ -154,6 +157,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A88DE815297BF422003A7580 /* StreakView.swift in Sources */,
 				A8F4B7F9297921AE00B79BAA /* Persistence.swift in Sources */,
 				A88DE812297BC795003A7580 /* Date.swift in Sources */,
 				A8F4B7FC297921AE00B79BAA /* Swift_Calendar.xcdatamodeld in Sources */,

@@ -53,7 +53,7 @@ extension Date {
     
     // MARK: Need to refactor by dynamic start of the week from calendar
     var startOfCalendarWithPrefixDays: Date {
-        let startOfMonthDay = Calendar.current.component(.weekday, from: startOfMonth)
+//        let startOfMonthDay = Calendar.current.component(.weekday, from: startOfMonth)
         let startDate = Calendar.current.date(byAdding: .day, value: -6, to: startOfMonth)!
         return startDate
     }
