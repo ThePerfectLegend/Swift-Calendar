@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A88DE812297BC795003A7580 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88DE811297BC795003A7580 /* Date.swift */; };
 		A8F4B7F0297921AB00B79BAA /* Swift_CalendarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F4B7EF297921AB00B79BAA /* Swift_CalendarApp.swift */; };
-		A8F4B7F2297921AB00B79BAA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F4B7F1297921AB00B79BAA /* ContentView.swift */; };
+		A8F4B7F2297921AB00B79BAA /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F4B7F1297921AB00B79BAA /* CalendarView.swift */; };
 		A8F4B7F4297921AE00B79BAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8F4B7F3297921AE00B79BAA /* Assets.xcassets */; };
 		A8F4B7F7297921AE00B79BAA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8F4B7F6297921AE00B79BAA /* Preview Assets.xcassets */; };
 		A8F4B7F9297921AE00B79BAA /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F4B7F8297921AE00B79BAA /* Persistence.swift */; };
@@ -16,9 +17,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A88DE811297BC795003A7580 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		A8F4B7EC297921AB00B79BAA /* Swift Calendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swift Calendar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8F4B7EF297921AB00B79BAA /* Swift_CalendarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_CalendarApp.swift; sourceTree = "<group>"; };
-		A8F4B7F1297921AB00B79BAA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A8F4B7F1297921AB00B79BAA /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		A8F4B7F3297921AE00B79BAA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A8F4B7F6297921AE00B79BAA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A8F4B7F8297921AE00B79BAA /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -36,6 +38,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A88DE813297BC79D003A7580 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				A88DE811297BC795003A7580 /* Date.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		A8F4B7E3297921AB00B79BAA = {
 			isa = PBXGroup;
 			children = (
@@ -56,7 +66,8 @@
 			isa = PBXGroup;
 			children = (
 				A8F4B7EF297921AB00B79BAA /* Swift_CalendarApp.swift */,
-				A8F4B7F1297921AB00B79BAA /* ContentView.swift */,
+				A8F4B7F1297921AB00B79BAA /* CalendarView.swift */,
+				A88DE813297BC79D003A7580 /* Extension */,
 				A8F4B7F3297921AE00B79BAA /* Assets.xcassets */,
 				A8F4B7F8297921AE00B79BAA /* Persistence.swift */,
 				A8F4B7FA297921AE00B79BAA /* Swift_Calendar.xcdatamodeld */,
@@ -144,8 +155,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8F4B7F9297921AE00B79BAA /* Persistence.swift in Sources */,
+				A88DE812297BC795003A7580 /* Date.swift in Sources */,
 				A8F4B7FC297921AE00B79BAA /* Swift_Calendar.xcdatamodeld in Sources */,
-				A8F4B7F2297921AB00B79BAA /* ContentView.swift in Sources */,
+				A8F4B7F2297921AB00B79BAA /* CalendarView.swift in Sources */,
 				A8F4B7F0297921AB00B79BAA /* Swift_CalendarApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
