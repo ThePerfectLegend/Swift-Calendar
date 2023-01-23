@@ -15,19 +15,11 @@ struct CalendarView: View {
         sortDescriptors: [NSSortDescriptor(keyPath: \DayEntity.date, ascending: true)],
         predicate: NSPredicate(format: "date BETWEEN { %@, %@ }", Date().startOfCalendarWithPrefixDays as CVarArg, Date().endOfMonth as CVarArg))
     private var days: FetchedResults<DayEntity>
-    private let daysOfWeek = ["M", "T", "W", "T", "F", "S", "S"]
     
     var body: some View {
         NavigationView {
             VStack {
-                HStack {
-                    ForEach(daysOfWeek, id: \.self) { dayOfWeek in
-                        Text(dayOfWeek)
-                            .fontWeight(.black)
-                            .foregroundColor(.orange)
-                            .frame(maxWidth: .infinity)
-                    }
-                }
+                CalendarHeaderView()
                 LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 7)) {
                     ForEach(days) { day in
                         if day.date!.monthInt != Date().monthInt {
