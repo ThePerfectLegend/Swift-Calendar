@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreData
+import WidgetKit
 
 struct CalendarView: View {
     @Environment(\.managedObjectContext) private var viewContext
@@ -38,6 +39,7 @@ struct CalendarView: View {
                                         day.didStudy.toggle()
                                         do {
                                             try viewContext.save()
+                                            WidgetCenter.shared.reloadTimelines(ofKind: "CalendarWidget")
                                             print("✅ \(day.date!.dayInt) is studied")
                                         } catch {
                                             print("❌ Failed to save calendar days")

@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		A88DE812297BC795003A7580 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88DE811297BC795003A7580 /* Date.swift */; };
 		A88DE815297BF422003A7580 /* StreakView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88DE814297BF422003A7580 /* StreakView.swift */; };
+		A8DB5A792980386B003BAF35 /* Swift_Calendar.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A8F4B7FA297921AE00B79BAA /* Swift_Calendar.xcdatamodeld */; };
+		A8DB5A7A29803A12003BAF35 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88DE811297BC795003A7580 /* Date.swift */; };
+		A8DB5A7B29803B5D003BAF35 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F4B7F8297921AE00B79BAA /* Persistence.swift */; };
 		A8DCF13D297E615300D4A553 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8DCF13C297E615300D4A553 /* WidgetKit.framework */; };
 		A8DCF13F297E615300D4A553 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8DCF13E297E615300D4A553 /* SwiftUI.framework */; };
 		A8DCF142297E615300D4A553 /* CalendarWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DCF141297E615300D4A553 /* CalendarWidgetBundle.swift */; };
@@ -266,6 +269,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8DCF142297E615300D4A553 /* CalendarWidgetBundle.swift in Sources */,
+				A8DB5A7A29803A12003BAF35 /* Date.swift in Sources */,
+				A8DB5A792980386B003BAF35 /* Swift_Calendar.xcdatamodeld in Sources */,
+				A8DB5A7B29803B5D003BAF35 /* Persistence.swift in Sources */,
 				A8DCF153297E7D7A00D4A553 /* CalendarHeaderView.swift in Sources */,
 				A8DCF144297E615300D4A553 /* CalendarWidget.swift in Sources */,
 			);

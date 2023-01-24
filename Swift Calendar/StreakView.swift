@@ -49,7 +49,6 @@ struct StreakView: View {
                 }
             }
         }
-        
         return streakCount
     }
 }
