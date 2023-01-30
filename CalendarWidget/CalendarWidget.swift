@@ -25,7 +25,7 @@ struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> CalendarEntry {
         CalendarEntry(date: Date(), days: [])
     }
-
+    
     func getSnapshot(in context: Context, completion: @escaping (CalendarEntry) -> ()) {
         do {
             let days = try viewContext.fetch(daysFetchRequest)
@@ -35,7 +35,7 @@ struct Provider: TimelineProvider {
             print("Widget failed to fetch dates in snapshot")
         }
     }
-
+    
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         do {
             let days = try viewContext.fetch(daysFetchRequest)
@@ -54,48 +54,87 @@ struct CalendarEntry: TimelineEntry {
 }
 
 struct CalendarWidgetEntryView : View {
+    @Environment(\.widgetFamily) var family
+    
     var entry: CalendarEntry
     let columns = Array(repeating: GridItem(.flexible()), count: 7)
-
+    
     var body: some View {
-        HStack {
-            Link(destination: URL(string: "streak")!) {
-                VStack {
-                    Text("\(calculateStreakValue())")
-                        .font(.system(size: 70, design: .rounded))
-                        .bold()
-                        .foregroundColor(.orange)
-                    Text("Day streak")
-                        .font(.caption)
-                        .foregroundColor(.secondary)
+        switch family {
+        case .systemMedium:
+            HStack {
+                Link(destination: URL(string: "streak")!) {
+                    VStack {
+                        Text("\(calculateStreakValue())")
+                            .font(.system(size: 70, design: .rounded))
+                            .bold()
+                            .foregroundColor(.orange)
+                        Text("Day streak")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
                 }
-            }
-            Link(destination: URL(string: "calendar")!) {
-                VStack {
-                    CalendarHeaderView(font: .caption)
-                    LazyVGrid(columns: columns, spacing: 6) {
-                        ForEach(entry.days) { day in
-                            if day.date!.monthInt != Date().monthInt {
-                                Text("")
-                            } else {
-                                Text(day.date!.formatted(.dateTime.day()))
-                                    .font(.caption)
-                                    .fontWeight(.semibold)
-                                    .frame(maxWidth: .infinity)
-                                    .foregroundColor(day.didStudy ? .orange : .secondary)
-                                    .background(
-                                        Circle()
-                                            .foregroundColor(.orange.opacity(day.didStudy ? 0.3 : 0))
-                                            .scaleEffect(1.5)
-                                    )
+                Link(destination: URL(string: "calendar")!) {
+                    VStack {
+                        CalendarHeaderView(font: .caption)
+                        LazyVGrid(columns: columns, spacing: 6) {
+                            ForEach(entry.days) { day in
+                                if day.date!.monthInt != Date().monthInt {
+                                    Text("")
+                                } else {
+                                    Text(day.date!.formatted(.dateTime.day()))
+                                        .font(.caption)
+                                        .fontWeight(.semibold)
+                                        .frame(maxWidth: .infinity)
+                                        .foregroundColor(day.didStudy ? .orange : .secondary)
+                                        .background(
+                                            Circle()
+                                                .foregroundColor(.orange.opacity(day.didStudy ? 0.3 : 0))
+                                                .scaleEffect(1.25)
+                                        )
+                                }
                             }
                         }
                     }
+                    .padding(.leading, 6)
                 }
-                .padding(.leading, 6)
             }
+            .padding()
+        case .accessoryInline:
+            Label("Streak - \(calculateStreakValue()) days", systemImage: "swift")
+                .widgetURL(URL(string: "streak")!)
+        case .accessoryRectangular:
+            LazyVGrid(columns: columns, spacing: 4) {
+                ForEach(entry.days) { day in
+                    if day.date!.monthInt != Date().monthInt {
+                        Text("")
+                            .font(.system(size: 7))
+                    } else {
+                        if day.didStudy {
+                            Image(systemName: "swift")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 7, height: 7)
+                        } else {
+                            Text(day.date!.formatted(.dateTime.day()))
+                                .font(.system(size: 7))
+                                .frame(maxWidth: .infinity)
+                        }
+                    }
+                }
+            }
+            .widgetURL(URL(string: "calendar")!)
+        case .accessoryCircular:
+            Gauge(value: Double(calculateStreakValue()), in: 1...Double(entry.days.count)) {
+                Image(systemName: "swift")
+            } currentValueLabel: {
+                Text("\(calculateStreakValue())")
+            }
+            .gaugeStyle(.accessoryCircular)
+            .widgetURL(URL(string: "streak")!)
+        default:
+            EmptyView()
         }
-        .padding()
     }
     
     func calculateStreakValue() -> Int {
@@ -121,13 +160,13 @@ struct CalendarWidgetEntryView : View {
 
 struct CalendarWidget: Widget {
     let kind: String = "CalendarWidget"
-
+    
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             CalendarWidgetEntryView(entry: entry)
         }
         .configurationDisplayName("Swift Study Calendar")
         .description("Track days you study Swift.")
-        .supportedFamilies([.systemMedium])
+        .supportedFamilies([.systemMedium, .accessoryInline, .accessoryCircular, .accessoryRectangular])
     }
 }
